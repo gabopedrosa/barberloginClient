@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Register.css'
 import '../../App.css'
 import { Link } from 'react-router-dom'
@@ -14,11 +14,29 @@ import {BsFillShieldLockFill} from 'react-icons/bs'
 import {AiOutlineArrowRight} from 'react-icons/ai'
 import {MdMarkEmailRead} from 'react-icons/md'
 
-
 const Register = () => {
-  return (
-    
+  
+    // Back-End cadastro Usuário
+    const [formData, setFormData] = useState({
+    email:'',
+    username:'',
+    password:''
+  })
+  
+  function handleChange(event){
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [event.target.id]: event.target.value
+      }
+    })
+  }
+  console.log(formData)
 
+
+
+  // Front-End
+  return (
     <div className='registerPage flex'>
     <div className='container flex'> 
 
@@ -51,7 +69,12 @@ const Register = () => {
             <label htmlFor='email'>Email</label>
             <div className="input flex">
               <MdMarkEmailRead className="icon" />
-              <input type='email' id='email' placeholder='Seu Email' />
+              <input 
+                type='email' 
+                id='email' 
+                placeholder='Seu Email'
+                onChange={handleChange} 
+              />
             </div> 
           </div>
 
@@ -60,7 +83,12 @@ const Register = () => {
             <label htmlFor='username'>Usuário</label>
             <div className="input flex">
               <FaUserShield className="icon" />
-              <input type='text' id='username' placeholder='Seu Username' />
+              <input 
+                type='text' 
+                id='username' 
+                placeholder='Seu Username'
+                onChange={handleChange} 
+              />
             </div> 
           </div>
 
@@ -69,7 +97,12 @@ const Register = () => {
             <label htmlFor='password'>Senha</label>
             <div className="input flex">
               <BsFillShieldLockFill className="icon" />
-              <input type='password' id='password' placeholder='Sua senha'/>
+              <input 
+                type='password' 
+                id='password' 
+                placeholder='Sua senha'
+                onChange={handleChange}
+              />
             </div> 
           </div>
 
@@ -78,7 +111,6 @@ const Register = () => {
             <span>Concluir Registro</span>
             <AiOutlineArrowRight className="icon" />
           </button>
-
 
         </form>
       </div>

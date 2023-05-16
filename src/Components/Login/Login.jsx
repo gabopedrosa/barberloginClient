@@ -2,8 +2,6 @@ import React from 'react'
 import './Login.css'
 import '../../App.css'
 import { Link } from 'react-router-dom'
-//import { supabase } from '../../supabaseClient'
-
 // Assets
 import video from '../../LoginAssets/video.mp4'
 import logo from '../../LoginAssets/logo.png'
@@ -12,12 +10,6 @@ import logo from '../../LoginAssets/logo.png'
 import {FaUserShield} from 'react-icons/fa'
 import {BsFillShieldLockFill} from 'react-icons/bs'
 import {BiArrowToRight} from 'react-icons/bi'
-
-/*const LoginGitHub = async () =>{
-  await supabase.auth.signIn({
-
-  })
-};*/
 
 const Login = () => {
   return (
@@ -84,5 +76,6 @@ const Login = () => {
     </div>
   )
 }
+
 
 export default Login
