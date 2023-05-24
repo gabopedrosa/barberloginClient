@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './Register.css'
 import '../../App.css'
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import { supabase } from '../../supabaseClient'
 
 // Assets
 import video from '../../LoginAssets/video2.mp4'
@@ -12,14 +12,15 @@ import logo from '../../LoginAssets/logo.png'
 import {FaUserShield} from 'react-icons/fa'
 import {BsFillShieldLockFill} from 'react-icons/bs'
 import {AiOutlineArrowRight} from 'react-icons/ai'
-import {MdMarkEmailRead} from 'react-icons/md'
+import {MdEmail, MdMarkEmailRead} from 'react-icons/md'
 
 const Register = () => {
+
+  let navigate = useNavigate(); 
   
-    // Back-End cadastro Usuário
+  // Back-End cadastro Usuário
     const [formData, setFormData] = useState({
     email:'',
-    username:'',
     password:''
   })
   
@@ -33,7 +34,29 @@ const Register = () => {
   }
   console.log(formData)
 
+  async function handleSubmit(e){
+    e.preventDefault()
 
+    try {
+      const { data, error } = await supabase.auth.signUp(
+        {
+        email: formData.email,
+        password: formData.password,
+          options: {
+            data: {
+              username: formData.username,
+              }
+          }
+        } 
+      )
+      if (error) throw error
+      alert('Verifique seu e-mail para concluir o cadastro')
+      navigate('/')
+
+    } catch (error) {
+      alert(error)
+    }
+  }
 
   // Front-End
   return (
@@ -64,7 +87,7 @@ const Register = () => {
         </div>
 
 
-        <form action='' className='form grid'>
+        <form onSubmit={handleSubmit} className='form grid'>
         <div className="inputDiv">
             <label htmlFor='email'>Email</label>
             <div className="input flex">
