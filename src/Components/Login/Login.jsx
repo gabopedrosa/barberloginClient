@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import './Login.css'
 import '../../App.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import video from '../../LoginAssets/video.mp4'
 import logo from '../../LoginAssets/logo.png'
 import { supabase } from '../../supabaseClient'
@@ -15,7 +15,10 @@ import {BiArrowToRight} from 'react-icons/bi'
 
 
 
-const Login = () => {
+const Login = ({setToken}) => {
+
+  let navigate = useNavigate(); 
+
   // Back-End Login Usuário
   const [formData, setFormData] = useState({
     email:'',
@@ -45,6 +48,9 @@ const Login = () => {
       if (error) throw error
       console.log(data)
       alert('Logado com sucesso')
+      setToken(data)
+      navigate('/dashboard')
+      
 
     } catch (error) {
       alert("Opa! Algo deu errado... Confira suas credenciais e tente novamente.")
