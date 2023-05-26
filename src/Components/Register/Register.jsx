@@ -13,6 +13,7 @@ import {FaUserShield} from 'react-icons/fa'
 import {BsFillShieldLockFill} from 'react-icons/bs'
 import {AiOutlineArrowRight} from 'react-icons/ai'
 import {MdEmail, MdMarkEmailRead} from 'react-icons/md'
+import Swal from 'sweetalert2'
 
 const Register = () => {
 
@@ -50,11 +51,19 @@ const Register = () => {
         } 
       )
       if (error) throw error
-      alert('Verifique seu e-mail para concluir o cadastro')
+      Swal.fire(
+        'Cadastro realizado',
+        'Confirme o seu cadastro pelo e-mail',
+        'success'
+      )
       navigate('/')
 
     } catch (error) {
-      alert(error)
+      Swal.fire(
+        'Ops!',
+        `${error}`,
+        'error'
+      )
     }
   }
 

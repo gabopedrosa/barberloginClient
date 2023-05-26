@@ -1,6 +1,7 @@
 import React from 'react'
 import './Dashboard.css'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const Dashboard = ({token}) => {
   
@@ -8,7 +9,6 @@ const Dashboard = ({token}) => {
 
   function handleLogout(){
     sessionStorage.removeItem('token')
-    localStorage.removeItem(key)
     navigate('/')
   }
 

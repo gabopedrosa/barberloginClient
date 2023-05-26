@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import video from '../../LoginAssets/video.mp4'
 import logo from '../../LoginAssets/logo.png'
 import { supabase } from '../../supabaseClient'
+import Swal from 'sweetalert2'
 
 // Icons
 import {MdEmail, MdMarkEmailRead} from 'react-icons/md'
@@ -47,14 +48,38 @@ const Login = ({setToken}) => {
 
       if (error) throw error
       console.log(data)
-      alert('Logado com sucesso')
+      let timerInterval
+      Swal.fire({
+        title: 'Estamos verificando seus dados!',
+        html: 'Seu acesso será liberado em <b></b> millisegundos.',
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading()
+          const b = Swal.getHtmlContainer().querySelector('b')
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft()
+          }, 100)
+        },
+        willClose: () => {
+          clearInterval(timerInterval)
+        }
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log('I was closed by the timer')
+        }
+      })
       setToken(data)
       navigate('/dashboard')
       
 
     } catch (error) {
-      alert("Opa! Algo deu errado... Confira suas credenciais e tente novamente.")
-      
+      Swal.fire(
+        'Você errou seus dados',
+        'Verifique seu e-mail e senha e tente novamente.',
+        'error'
+      )      
     }
   }
 
