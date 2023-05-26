@@ -237,7 +237,6 @@ img, video {
 }
 .loginPage .container .formDiv .form .btn, .registerPage .container .formDiv .form .btn {
   padding: 0.8rem;
-  margin-top: 20px;
   border-radius: 10px;
   color: var(--whiteColor);
   background-color: var(--blackColor);
