@@ -147,7 +147,7 @@ const Login = ({setToken}) => {
           </button>
 
           <span className='forgotPassword'>
-            Esqueceu sua senha? <a href='/forgotPassword'>Clique aqui</a>
+            Esqueceu sua senha? <Link to={'/forgotPassword'}><a>Clique aqui</a></Link>
           </span>
           
 
