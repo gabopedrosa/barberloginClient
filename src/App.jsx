@@ -4,6 +4,7 @@ import './App.css'
 import Dashboard from './pages/Dashboard/Dashboard';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 
 // React-Router-Dom
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -32,6 +33,7 @@ const App = () => {
         <Routes>
           <Route path={'/'} element={<Login setToken={setToken}/>} />
           <Route path={'/register'} element={<Register />} />
+          <Route path={'/forgotPassword'} element={<ForgotPassword />} />
           {token?<Route path={'/dashboard'} element={<Dashboard token={token} />} />:""}
         </Routes>
       </Router>
