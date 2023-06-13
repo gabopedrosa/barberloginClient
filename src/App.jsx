@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react';
 import './App.css'
 // Import das páginas
-import Dashboard from './Components/Dashboard/Dashboard';
-import Login from './Components/Login/Login';
-import Register from './Components/Register/Register';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
 
 // React-Router-Dom
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
