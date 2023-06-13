@@ -5,8 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { supabase } from '../../supabaseClient'
 
 // Assets
-import video from '../../LoginAssets/video2.mp4'
-import logo from '../../LoginAssets/logo.png'
+import video from '../../assets/video2.mp4'
+import logo from '../../assets/logo.png'
 
 // Icons
 import {FaUserShield} from 'react-icons/fa'
