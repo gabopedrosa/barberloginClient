@@ -138,14 +138,17 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     
   }
-  
+
+
   .logo {
     margin-top: 25px;
     transition: width 0.3s ease;
+    filter: invert();
   }
   
   .logo img {
     width: 100%; 
+    filter: invert();
   }
   
   .logo-open img {

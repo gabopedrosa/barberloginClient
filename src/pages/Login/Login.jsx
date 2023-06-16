@@ -4,7 +4,7 @@ import './Login.css'
 import '../../App.css'
 import { Link, useNavigate } from 'react-router-dom'
 import video from '../../assets/video.mp4'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.svg'
 import { supabase } from '../../supabaseClient'
 import Swal from 'sweetalert2'
 

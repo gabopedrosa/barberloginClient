@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom';
 import Carregando from './Carregando';
 import './Agendamentos.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '../../../assets/logo.png'
+import logo from '../../../assets/logo.svg'
+import arrow from '../../../assets/arrowleft.svg'
 import { BiHome } from 'react-icons/bi';
 
 function Agendamentos() {
@@ -67,16 +68,12 @@ function Agendamentos() {
     <>
       <div className="navbar fixed-top">
         <div className="logo2">
-        <Link to="/dashboard" className="logo">
+        <Link to="/dashboard" className="logo2">
           <img src={logo} alt="Logo" />
+          <img src={arrow} alt="Logo" />
           </Link>
         </div>
-        <div className="navbar-links">
-          <a href="/dashboard">Início</a>
-          <a href="/agendamentos">Agendamento</a>
-          <a href="/configuracao">Barbearia</a>
-          <a href="/">Sair</a>
-        </div>
+        
       </div>
       <div className="content" style={{ marginTop: '10px' }}></div>
       <div className="container mt-4">

@@ -18,6 +18,7 @@ const Dashboard = ({token}) => {
   };
   return (
     <div>
+    
       <div className="dashboard">
       <aside className={`sidebar ${isSidebarOpen ? 'sidebar-open' : ''}`}>
         <div className={`logo ${isSidebarOpen ? 'logo-open' : 'logo-closed'}`}>
@@ -39,17 +40,6 @@ const Dashboard = ({token}) => {
                 {!isSidebarOpen && <span>Agendamentos</span>}
               </Link>
             </li>
-            <li>
-              <Link to="/configuracao" className="sidebar-link">
-                {!isSidebarOpen ? <FiSettings className="sidebar-icon" /> : <FiSettings className="sidebar-icon-large" />}
-                {!isSidebarOpen && <span>Barbearia</span>}
-              </Link>
-            </li>
-            <h1>ㅤ</h1>
-            <h1>ㅤ</h1>
-            <h1>ㅤ</h1>
-            <h1>ㅤ</h1>
-            <h1>ㅤ</h1>
             <li>
               <Link to="/" className="sidebar-link" onClick={handleLogout}>
                 <FiLogOut className="sidebar-icon"/>
@@ -160,8 +150,15 @@ const Dashboard = ({token}) => {
             </div>
             <div className="col-md-6">
               <div className="info-card bg-dark">
-                <h5>ㅤㅤㅤㅤㅤㅤㅤVendas por Categoria</h5>
-                <img src={categoriaImage} alt="Categoria" className="categoria-image" />
+                <h5><u>Seus dados</u></h5>
+
+                <label for="email">Email:</label> <br/>
+                <input type="text" style={{width: 300}} id="email" name="email" value={token.user.email} /> <br/> <br />
+                <label for="email">Username:</label> <br/>
+                <input type="text" style={{width: 300}} id="email" name="email" value={token.user.user_metadata.username} /> <br/>
+                <label for="email">User ID: {token.user.id}</label> <br/>
+                <br />
+                
               </div>
             </div>
           </div>
