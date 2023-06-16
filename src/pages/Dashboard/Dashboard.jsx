@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FiMenu, FiHome, FiCalendar, FiSettings, FiLogOut, FiTool } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png'
-import categoriaImage from '../../assets/categoria.png'
 import './Dashboard.css'
 
 function handleLogout(){
@@ -158,7 +157,7 @@ const Dashboard = ({token}) => {
                 <input type="text" style={{width: 300}} id="email" name="email" value={token.user.user_metadata.username} /> <br/>
                 <label for="email">User ID: {token.user.id}</label> <br/>
                 <br />
-                
+
               </div>
             </div>
           </div>
