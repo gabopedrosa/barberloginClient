@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
+import Agendamentos from './pages/Dashboard/Agendamentos/Agendamentos';
 
 // React-Router-Dom
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -35,6 +36,7 @@ const App = () => {
           <Route path={'/register'} element={<Register />} />
           <Route path={'/forgotPassword'} element={<ForgotPassword />} />
           {token?<Route path={'/dashboard'} element={<Dashboard token={token} />} />:""}
+          {token?<Route path={'/agendamentos'} element={<Agendamentos token={token} />} />:""}
         </Routes>
       </Router>
     </div>
