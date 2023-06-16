@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FiMenu, FiHome, FiCalendar, FiSettings, FiLogOut, FiTool } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.svg'
 import './Dashboard.css'
 
 function handleLogout(){
@@ -21,9 +21,7 @@ const Dashboard = ({token}) => {
       <div className="dashboard">
       <aside className={`sidebar ${isSidebarOpen ? 'sidebar-open' : ''}`}>
         <div className={`logo ${isSidebarOpen ? 'logo-open' : 'logo-closed'}`}>
-          <Link to="/dashboard" className="logo">
-            <img src={logo} alt="Logo" />
-          </Link>
+    
         </div>
         <nav>
           <ul className="sidebar-menu">
@@ -43,7 +41,7 @@ const Dashboard = ({token}) => {
               <Link to="/" className="sidebar-link" onClick={handleLogout}>
                 <FiLogOut className="sidebar-icon"/>
                 <span onClick={handleLogout}>Sair</span> 
-              </Link>
+              </Link> 
             </li>
           </ul>
         </nav>

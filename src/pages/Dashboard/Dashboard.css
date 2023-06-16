@@ -63,6 +63,7 @@
     align-items: center;
     text-decoration: none; 
   }
+  
   .sidebar-link:hover {
     color: #afafaf;
     text-decoration: none;
@@ -140,11 +141,7 @@
   }
 
 
-  .logo {
-    margin-top: 25px;
-    transition: width 0.3s ease;
-    filter: invert();
-  }
+
   
   .logo img {
     width: 100%; 
